@@ -1,0 +1,56 @@
+/* CWA AR Monitor — Custom Styles */
+
+/* Aging status badges */
+.status-green  { background: #dcfce7; color: #15803d; }
+.status-yellow { background: #fef9c3; color: #a16207; }
+.status-orange { background: #ffedd5; color: #c2410c; }
+.status-red    { background: #fee2e2; color: #b91c1c; }
+
+/* Sort indicators on table headers */
+[data-sort] { user-select: none; }
+[data-sort]:hover { background-color: rgba(0,0,0,0.04); }
+.sort-asc::after  { content: ' ↑'; opacity: 0.7; }
+.sort-desc::after { content: ' ↓'; opacity: 0.7; }
+
+/* Scrollable tables on small screens */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Navbar active link */
+nav a.active {
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  border-radius: 0.375rem;
+}
+
+/* Accordion transition */
+.accordion-body { transition: max-height 0.2s ease; }
+
+/* KPI card hover */
+.kpi-card { transition: box-shadow 0.15s; }
+.kpi-card:hover { box-shadow: 0 4px 24px rgba(30,64,175,0.1); }
+
+/* Progress bar for aging summary */
+.progress-bar { height: 6px; border-radius: 3px; }
+
+/* File drop zone */
+.drop-zone {
+  border: 2px dashed #cbd5e1;
+  transition: border-color 0.2s, background 0.2s;
+}
+.drop-zone.drag-over {
+  border-color: #1E40AF;
+  background: #eff6ff;
+}
+
+/* Sticky header for tables */
+.sticky-header th { position: sticky; top: 0; z-index: 10; background: #f9fafb; }
+
+/* Print */
+@media print {
+  nav, .no-print { display: none !important; }
+  body { font-size: 11px; }
+}
+
+@media (max-width: 768px) {
+  .hide-mobile { display: none; }
+}

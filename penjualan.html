@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penjualan — CWA AR Monitor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+
+  <!-- NAVBAR -->
+  <nav class="bg-[#1E40AF] text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center gap-6">
+      <div class="flex items-center gap-2 font-bold text-lg mr-4">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+        CWA AR Monitor
+      </div>
+      <a href="index.html"      class="nav-link px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">Dashboard</a>
+      <a href="penjualan.html"  class="nav-link active px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">Penjualan</a>
+      <a href="ar.html"         class="nav-link px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">AR Monitor</a>
+      <a href="upload.html"     class="nav-link px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">Upload Data</a>
+    </div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 py-6">
+
+    <div class="mb-4">
+      <h1 class="text-2xl font-bold text-gray-800">Data Penjualan</h1>
+      <p class="text-sm text-gray-500 mt-1">Lihat dan filter data penjualan per bulan</p>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="bg-white rounded-xl shadow-sm border p-4 mb-4">
+      <div class="flex flex-wrap gap-3 items-center">
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Bulan</label>
+          <select id="filterBulan" class="border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none min-w-36">
+            <option value="">Semua Bulan</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Sales</label>
+          <select id="filterSales" class="border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none min-w-36">
+            <option value="">Semua Sales</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Brand</label>
+          <select id="filterBrand" class="border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none min-w-36">
+            <option value="">Semua Brand</option>
+          </select>
+        </div>
+        <div class="flex-1 min-w-48">
+          <label class="block text-xs text-gray-500 mb-1">Cari</label>
+          <input id="searchPenj" type="text" placeholder="Nama toko / No Invoice..."
+            class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+        </div>
+      </div>
+    </div>
+
+    <!-- KPI CARDS -->
+    <div class="grid grid-cols-3 gap-4 mb-4">
+      <div class="bg-white rounded-xl shadow-sm border p-4">
+        <div class="text-xs text-gray-500 mb-1">Total Grand Total</div>
+        <div id="kpiGrandTotal" class="text-xl font-bold text-blue-800">—</div>
+      </div>
+      <div class="bg-white rounded-xl shadow-sm border p-4">
+        <div class="text-xs text-gray-500 mb-1">Total Invoice</div>
+        <div id="kpiInvoiceCount" class="text-xl font-bold text-gray-800">—</div>
+      </div>
+      <div class="bg-white rounded-xl shadow-sm border p-4">
+        <div class="text-xs text-gray-500 mb-1">Total Tonase</div>
+        <div id="kpiTotalTonase" class="text-xl font-bold text-gray-800">—</div>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="bg-white rounded-xl shadow-sm border">
+      <div class="table-wrap">
+        <table class="w-full text-sm sticky-header">
+          <thead>
+            <tr class="border-b text-left text-gray-500 text-xs uppercase bg-gray-50">
+              <th class="py-3 px-3 cursor-pointer hover:bg-gray-100" data-sort="tanggal">Tanggal</th>
+              <th class="py-3 px-3">No Invoice</th>
+              <th class="py-3 px-3">Nama Toko</th>
+              <th class="py-3 px-3 cursor-pointer hover:bg-gray-100" data-sort="sales">Sales</th>
+              <th class="py-3 px-3 cursor-pointer hover:bg-gray-100" data-sort="brand">Brand</th>
+              <th class="py-3 px-3">Nama Barang</th>
+              <th class="py-3 px-3 text-right">QTY</th>
+              <th class="py-3 px-3 text-right cursor-pointer hover:bg-gray-100" data-sort="grand_total">Grand Total</th>
+              <th class="py-3 px-3 text-right">Total Invoice</th>
+              <th class="py-3 px-3">Jatuh Tempo</th>
+              <th class="py-3 px-3 text-center">PPN</th>
+            </tr>
+          </thead>
+          <tbody id="penjTableBody">
+            <tr><td colspan="11" class="py-8 text-center text-gray-400">Memuat data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="px-4 py-3 border-t" id="penjPagination"></div>
+    </div>
+
+  </div>
+
+  <script src="js/supabase-client.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/penjualan.js"></script>
+
+  <script>
+    document.querySelectorAll('.nav-link').forEach(a => {
+      a.classList.toggle('active', a.href === location.href);
+    });
+  </script>
+</body>
+</html>
