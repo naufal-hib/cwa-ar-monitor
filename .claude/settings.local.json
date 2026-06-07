@@ -4,7 +4,10 @@
       "Bash(python3 -c \"import base64; print\\(base64.b64decode\\('eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFxdHZvenZuZ3N2Y3ZidWFjdWtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA4MzI3MTQsImV4cCI6MjA5NjQwODcxNH0=='\\).decode\\(\\)\\)\")",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "Bash(git push *)"
     ]
   }
 }

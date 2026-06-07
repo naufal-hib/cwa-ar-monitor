@@ -63,7 +63,7 @@ function showToast(message, type = 'info') {
     info:    'bg-blue-700'
   };
   const toast = document.createElement('div');
-  toast.className = `fixed bottom-5 right-5 z-50 px-5 py-3 rounded-lg text-white text-sm shadow-lg ${colors[type] || colors.info} transition-all duration-300`;
+  toast.className = `toast-msg px-4 py-3 rounded-xl text-white text-sm shadow-lg max-w-xs ${colors[type] || colors.info} transition-all duration-300`;
   toast.textContent = message;
   document.body.appendChild(toast);
   setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 3500);

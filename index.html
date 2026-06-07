@@ -11,79 +11,114 @@
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen">
 
-  <!-- NAVBAR -->
-  <nav class="bg-[#1E40AF] text-white shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center gap-6">
-      <div class="flex items-center gap-2 font-bold text-lg mr-4">
-        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <!-- TOP NAVBAR -->
+  <nav class="top-nav bg-[#1E40AF] text-white shadow-lg sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2 font-bold text-base">
+        <svg class="w-6 h-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
         </svg>
-        CWA AR Monitor
+        <span class="truncate">CWA AR Monitor</span>
       </div>
-      <a href="index.html"      class="nav-link active px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">Dashboard</a>
-      <a href="penjualan.html"  class="nav-link px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">Penjualan</a>
-      <a href="ar.html"         class="nav-link px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">AR Monitor</a>
-      <a href="upload.html"     class="nav-link px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">Upload Data</a>
-      <span class="ml-auto text-xs text-blue-200">TA Semarang — KODE AREA: TA-03</span>
+      <!-- Desktop nav links -->
+      <div class="hidden sm:flex items-center gap-1">
+        <a href="index.html"     class="nav-link active px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">Dashboard</a>
+        <a href="penjualan.html" class="nav-link px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">Penjualan</a>
+        <a href="ar.html"        class="nav-link px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">AR Monitor</a>
+        <a href="upload.html"    class="nav-link px-3 py-1.5 text-sm font-medium hover:bg-white/20 rounded">Upload</a>
+        <span class="ml-3 text-xs text-blue-200 font-medium">TA-03</span>
+      </div>
+      <!-- Mobile area badge -->
+      <span class="sm:hidden text-xs text-blue-200 font-semibold bg-white/10 px-2 py-1 rounded">TA-03</span>
     </div>
   </nav>
 
-  <div class="max-w-7xl mx-auto px-4 py-6">
+  <!-- MOBILE BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="index.html" class="active">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+        Dashboard
+      </a>
+      <a href="penjualan.html">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+        </svg>
+        Penjualan
+      </a>
+      <a href="ar.html">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        AR Monitor
+      </a>
+      <a href="upload.html">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+        </svg>
+        Upload
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 page-pad">
 
     <!-- Header -->
-    <div class="mb-6">
-      <h1 class="text-2xl font-bold text-gray-800">Dashboard AR Monitor</h1>
-      <p class="text-sm text-gray-500 mt-1">Overview kondisi piutang TA Semarang Non Group</p>
+    <div class="mb-4 sm:mb-6">
+      <h1 class="text-xl sm:text-2xl font-bold text-gray-800">Dashboard AR Monitor</h1>
+      <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Overview kondisi piutang TA Semarang Non Group</p>
     </div>
 
     <!-- KPI CARDS -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4 sm:mb-6">
 
-      <div class="kpi-card bg-white rounded-xl shadow-sm border p-5">
-        <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">Total Sisa Piutang</div>
-        <div id="kpiTotalSisa" class="text-2xl font-bold text-blue-800">—</div>
-        <div class="text-xs text-gray-400 mt-1">Dari snapshot terbaru</div>
+      <div class="kpi-card bg-white rounded-xl shadow-sm border p-4">
+        <div class="text-xs text-gray-500 uppercase tracking-wide mb-1 leading-tight">Total Sisa Piutang</div>
+        <div id="kpiTotalSisa" class="text-base sm:text-2xl font-bold text-blue-800 break-words leading-tight">—</div>
+        <div class="text-xs text-gray-400 mt-1 hidden sm:block">Dari snapshot terbaru</div>
       </div>
 
-      <div class="kpi-card bg-white rounded-xl shadow-sm border p-5">
-        <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">Invoice Aktif</div>
-        <div id="kpiInvoiceAktif" class="text-2xl font-bold text-gray-800">—</div>
-        <div class="text-xs text-gray-400 mt-1">Sisa piutang &gt; 0</div>
+      <div class="kpi-card bg-white rounded-xl shadow-sm border p-4">
+        <div class="text-xs text-gray-500 uppercase tracking-wide mb-1 leading-tight">Invoice Aktif</div>
+        <div id="kpiInvoiceAktif" class="text-xl sm:text-2xl font-bold text-gray-800">—</div>
+        <div class="text-xs text-gray-400 mt-1 hidden sm:block">Sisa piutang &gt; 0</div>
       </div>
 
-      <div class="kpi-card bg-white rounded-xl shadow-sm border p-5">
-        <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">Bad Debt Risk</div>
-        <div id="kpiBadDebt" class="text-2xl font-bold text-red-600">—</div>
-        <div class="text-xs text-gray-400 mt-1">Invoice ≥ 90 hari</div>
+      <div class="kpi-card bg-white rounded-xl shadow-sm border p-4">
+        <div class="text-xs text-gray-500 uppercase tracking-wide mb-1 leading-tight">Bad Debt Risk</div>
+        <div id="kpiBadDebt" class="text-xl sm:text-2xl font-bold text-red-600">—</div>
+        <div class="text-xs text-gray-400 mt-1 hidden sm:block">Invoice ≥ 90 hari</div>
       </div>
 
-      <div class="kpi-card bg-white rounded-xl shadow-sm border p-5">
-        <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">Toko Aktif</div>
-        <div id="kpiTokoAktif" class="text-2xl font-bold text-gray-800">—</div>
-        <div class="text-xs text-gray-400 mt-1">Distinct pelanggan</div>
+      <div class="kpi-card bg-white rounded-xl shadow-sm border p-4">
+        <div class="text-xs text-gray-500 uppercase tracking-wide mb-1 leading-tight">Toko Aktif</div>
+        <div id="kpiTokoAktif" class="text-xl sm:text-2xl font-bold text-gray-800">—</div>
+        <div class="text-xs text-gray-400 mt-1 hidden sm:block">Distinct pelanggan</div>
       </div>
 
     </div>
 
     <!-- CHARTS ROW -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
 
       <!-- Aging Chart -->
-      <div class="bg-white rounded-xl shadow-sm border p-5">
-        <h2 class="font-semibold text-gray-700 mb-4">Aging Summary</h2>
-        <div class="flex gap-6">
-          <div class="w-48 h-48 flex-shrink-0">
+      <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-5">
+        <h2 class="font-semibold text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base">Aging Summary</h2>
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center">
+          <div class="w-40 h-40 sm:w-48 sm:h-48 flex-shrink-0 mx-auto sm:mx-0">
             <canvas id="agingChart"></canvas>
           </div>
-          <div id="agingSummary" class="flex flex-col justify-center gap-3 flex-1 text-sm"></div>
+          <div id="agingSummary" class="w-full flex flex-col justify-center gap-2 sm:gap-3 text-xs sm:text-sm"></div>
         </div>
       </div>
 
       <!-- Sales Chart -->
-      <div class="bg-white rounded-xl shadow-sm border p-5">
-        <h2 class="font-semibold text-gray-700 mb-4">Piutang Per Sales</h2>
-        <div style="height: 220px;">
+      <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-5">
+        <h2 class="font-semibold text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base">Piutang Per Sales</h2>
+        <div style="height: 200px;">
           <canvas id="salesChart"></canvas>
         </div>
       </div>
@@ -91,17 +126,17 @@
     </div>
 
     <!-- TOP 10 TOKO -->
-    <div class="bg-white rounded-xl shadow-sm border p-5 mb-6">
-      <h2 class="font-semibold text-gray-700 mb-4">Top 10 Toko Piutang Terbesar</h2>
+    <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-5 mb-4 sm:mb-6">
+      <h2 class="font-semibold text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base">Top 10 Toko Piutang Terbesar</h2>
       <div class="table-wrap">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b text-left text-gray-500 text-xs uppercase">
-              <th class="py-2 px-3 w-8">#</th>
-              <th class="py-2 px-3">Nama Toko</th>
-              <th class="py-2 px-3">Sales</th>
-              <th class="py-2 px-3 text-right">Total Sisa Piutang</th>
-              <th class="py-2 px-3 text-center">Status Terparah</th>
+              <th class="py-2 px-2 sm:px-3 w-8">#</th>
+              <th class="py-2 px-2 sm:px-3">Nama Toko</th>
+              <th class="py-2 px-3 hide-mobile">Sales</th>
+              <th class="py-2 px-2 sm:px-3 text-right">Sisa Piutang</th>
+              <th class="py-2 px-3 text-center hide-mobile">Status</th>
             </tr>
           </thead>
           <tbody id="topTokoBody">
@@ -112,19 +147,19 @@
     </div>
 
     <!-- INFO SNAPSHOT -->
-    <div class="bg-white rounded-xl shadow-sm border p-5">
-      <h2 class="font-semibold text-gray-700 mb-3">Informasi Data</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+    <div class="bg-white rounded-xl shadow-sm border p-4 sm:p-5">
+      <h2 class="font-semibold text-gray-700 mb-2 sm:mb-3 text-sm sm:text-base">Informasi Data</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 text-sm">
         <div>
-          <span class="text-gray-500">Snapshot piutang terakhir:</span>
-          <span id="infoSnapshotDate" class="ml-2 font-semibold text-gray-800">—</span>
+          <span class="text-gray-500 text-xs sm:text-sm">Snapshot piutang terakhir:</span>
+          <span id="infoSnapshotDate" class="ml-1 font-semibold text-gray-800 text-xs sm:text-sm">—</span>
         </div>
         <div>
-          <span class="text-gray-500">Data penjualan tersedia:</span>
-          <span id="infoBulanPenjualan" class="ml-2 font-semibold text-gray-800">—</span>
+          <span class="text-gray-500 text-xs sm:text-sm">Data penjualan tersedia:</span>
+          <span id="infoBulanPenjualan" class="ml-1 font-semibold text-gray-800 text-xs sm:text-sm">—</span>
         </div>
       </div>
-      <div class="mt-3 text-xs text-gray-400">
+      <div class="mt-2 sm:mt-3 text-xs text-gray-400">
         Upload data baru di halaman <a href="upload.html" class="text-blue-600 hover:underline">Upload Data</a>.
       </div>
     </div>
@@ -136,8 +171,7 @@
   <script src="js/dashboard.js"></script>
 
   <script>
-    // Set active nav
-    document.querySelectorAll('.nav-link').forEach(a => {
+    document.querySelectorAll('.top-nav .nav-link').forEach(a => {
       a.classList.toggle('active', a.href === location.href);
     });
   </script>

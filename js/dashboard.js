@@ -196,11 +196,17 @@ async function loadTopToko() {
 
   tbody.innerHTML = top10.map((t, i) => `
     <tr class="border-b hover:bg-gray-50 text-sm">
-      <td class="py-2 px-3 text-gray-400 text-center">${i + 1}</td>
-      <td class="py-2 px-3 font-medium">${t.nama}</td>
-      <td class="py-2 px-3 text-gray-600">${t.sales || '-'}</td>
-      <td class="py-2 px-3 text-right font-semibold text-blue-800">${formatRupiah(t.totalSisa)}</td>
-      <td class="py-2 px-3 text-center">
+      <td class="py-2 px-2 sm:px-3 text-gray-400 text-center font-medium">${i + 1}</td>
+      <td class="py-2 px-2 sm:px-3 font-medium">
+        <div>${t.nama}</div>
+        <div class="sm:hidden mt-0.5 flex flex-wrap gap-1">
+          <span class="text-xs text-gray-500">${t.sales || ''}</span>
+          <span class="px-1.5 py-0.5 rounded-full text-xs font-semibold ${BADGE_CLASS[t.worstStatus]}">${t.worstStatus}</span>
+        </div>
+      </td>
+      <td class="py-2 px-3 text-gray-600 hide-mobile">${t.sales || '-'}</td>
+      <td class="py-2 px-2 sm:px-3 text-right font-semibold text-blue-800">${formatRupiah(t.totalSisa)}</td>
+      <td class="py-2 px-3 text-center hide-mobile">
         <span class="px-2 py-0.5 rounded-full text-xs font-semibold ${BADGE_CLASS[t.worstStatus]}">${t.worstStatus}</span>
       </td>
     </tr>
